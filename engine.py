@@ -1,5 +1,20 @@
 from libraries import *
 
+
+# CLASS ITEM ================================================================
+class SudItem:
+    def __init__(self, name, sight, collide = 'Nothing happens.', usability = 'Unusable.'):
+        self.name = name
+        self.sight = sight.capitalize()
+        self.collide = collide.capitalize()
+        self.usability = usability.capitalize()
+    def view(self):
+        return self.sight
+    def touch(self):
+        return self.collide
+    def use(self):
+        return self.usability
+
 # CLASS OBJECTS ================================================================
 class SudObject:
     def __init__(self, name, sight, collide = 'Nothing happens.', usability = 'Unusable.'):

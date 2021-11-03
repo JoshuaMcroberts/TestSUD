@@ -50,6 +50,7 @@ ClearScreen()
 # Defines default paths and valid extension for files
 RoomsPath = './rooms/'
 ObjectsPath = './objects/'
+# ItemsPath = './items/'
 ValidExt = '.txt'
 
 # Create subdirectories if don't exist
@@ -57,6 +58,21 @@ if os.path.isdir(RoomsPath) is False:
     os.mkdir(RoomsPath)
 if os.path.isdir(ObjectsPath) is False:
     os.mkdir(ObjectsPath)
+# if os.path.isdir(ItemsPath) is False:
+#     os.mkdir(ItemsPath)
+#
+# # Items
+# # Read folder "items" and create dictionary reading files in there
+# # name: (look, touch, use)
+# BaseItemsDic = FilesToDict(ItemsPath, ValidExt)
+# # Void final dictionary of items
+# ItemsDic = {}
+# # Fulfill final dictionary of items (item name: atribute 1, attribute 2 etc)
+# for i in BaseItemsDic:
+# # name: Class(name, look, touch, use)
+#     ItemsDic[i] = SudItem(i,BaseItemsDic[i][0],BaseItemsDic[i][1],BaseItemsDic[i][2])
+
+# print (ItemsDic)
 
 # OBJECTS
 # Read folder "objects" and create dictionary reading files in there
@@ -107,5 +123,5 @@ char = SudPlayer('PlayerName')
 game = SudGame(char, RoomsDic['1'])
 
 # Lets go!
-ClearScreen()
+# ClearScreen()
 game.run()
