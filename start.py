@@ -31,6 +31,14 @@ def FilesToDict(Path, Ext, IsRoom='no'):
         fileread = open(i,"r")
         thisfile = fileread.readlines()
         fileread.close()
+        for i in thisfile:
+            thisfile[0] = thisfile[0].replace('\n','')
+            if IsRoom.lower() == "yes":
+                thisfile[1] = thisfile[1].replace('\n','')
+                thisfile[2] = thisfile[2].replace('\n','')
+        thisfiletuple = tuple(thisfile)
+        Dict[thisfiletuple[0]] = thisfiletuple[1:]
+
     return Dict
 
 # SHOW ROOM DESCRIPTION TO PLAYER IN FRIENDLY FORMAT
