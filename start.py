@@ -18,7 +18,10 @@ def FilesToDict(Path, Ext, IsRoom='no'):
 
         for n, i in enumerate(ListOfFilesB):
             try:
+                j = list(i)
+                i = j[8]
                 int(i)
+            
             except ValueError:
                 ListOfFiles.pop(n)
 
