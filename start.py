@@ -18,7 +18,10 @@ def FilesToDict(Path, Ext, IsRoom='no'):
 
         for n, i in enumerate(ListOfFilesB):
             try:
+                j = list(i)
+                i = j[8]
                 int(i)
+                
             except ValueError:
                 ListOfFiles.pop(n)
 
@@ -28,14 +31,6 @@ def FilesToDict(Path, Ext, IsRoom='no'):
         fileread = open(i,"r")
         thisfile = fileread.readlines()
         fileread.close()
-        for i in thisfile:
-            thisfile[0] = thisfile[0].replace('\n','')
-            if IsRoom.lower() == "yes":
-                thisfile[1] = thisfile[1].replace('\n','')
-                thisfile[2] = thisfile[2].replace('\n','')
-        thisfiletuple = tuple(thisfile)
-        Dict[thisfiletuple[0]] = thisfiletuple[1:]
-
     return Dict
 
 # SHOW ROOM DESCRIPTION TO PLAYER IN FRIENDLY FORMAT
@@ -60,7 +55,7 @@ if os.path.isdir(ObjectsPath) is False:
     os.mkdir(ObjectsPath)
 # if os.path.isdir(ItemsPath) is False:
 #     os.mkdir(ItemsPath)
-#
+
 # # Items
 # # Read folder "items" and create dictionary reading files in there
 # # name: (look, touch, use)
@@ -123,5 +118,5 @@ char = SudPlayer('PlayerName')
 game = SudGame(char, RoomsDic['1'])
 
 # Lets go!
-# ClearScreen()
+#ClearScreen()
 game.run()

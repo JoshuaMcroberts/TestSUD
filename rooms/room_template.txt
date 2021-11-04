@@ -1,4 +1,0 @@
-<room id>
-<direstions of travel>
-<room title>
-<room escription (multiple lines)>
